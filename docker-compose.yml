@@ -1,0 +1,10 @@
+version: '3'
+services:
+  pintree:
+    build: .
+    container_name: pintree-web
+    ports:
+      - "8080:80"
+    volumes:
+      - ./json:/usr/share/nginx/html/json
+    restart: always
