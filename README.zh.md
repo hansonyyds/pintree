@@ -46,6 +46,41 @@ Pintree 是一个开源项目，旨在将浏览器书签导出成导航网站。
 
 ![](https://github.com/Pintree-io/pintree/blob/main/assets/guide/step4.png)
 
+### 替代方案：使用 Docker 部署
+
+您也可以使用 Docker 来部署 Pintree：
+
+#### 方案一：使用 Docker
+
+1. 构建 Docker 镜像：
+```bash
+docker build -t pintree .
+```
+
+2. 运行容器：
+```bash
+docker run -d --name pintree-web -p 8080:80 -v $(pwd)/json:/usr/share/nginx/html/json pintree
+```
+
+3. 访问网站：`http://localhost:8080`
+
+#### 方案二：使用 Docker Compose
+
+1. 确保您已经安装了 Docker Compose
+
+2. 使用 docker-compose 运行：
+```bash
+docker-compose up -d
+```
+
+3. 访问网站：`http://localhost:8080`
+
+Docker 部署功能：
+- 使用 Nginx 作为 Web 服务器
+- 将 json 目录映射到主机，方便书签更新
+- 支持自动容器重启
+- 包括 Gzip 压缩以提高性能
+
 ---
 
 通过以上步骤，您已经成功完成了 Pintree 项目的安装和运行。如果有任何问题，可以加群获取更多帮助，也可以添加我的微信: ```Gift_wei``` 我拉你进交流群

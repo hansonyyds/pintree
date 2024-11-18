@@ -46,6 +46,41 @@ Pintree is an open-source project that aims to convert browser bookmarks into a 
 
 ![](https://github.com/Pintree-io/pintree/blob/main/assets/guide/step4.png)
 
+### Alternative: Deploy Using Docker
+
+You can also deploy Pintree using Docker:
+
+#### Option 1: Using Docker
+
+1. Build the Docker image:
+```bash
+docker build -t pintree .
+```
+
+2. Run the container:
+```bash
+docker run -d --name pintree-web -p 8080:80 -v $(pwd)/json:/usr/share/nginx/html/json pintree
+```
+
+3. Access the website: `http://localhost:8080`
+
+#### Option 2: Using Docker Compose
+
+1. Ensure you have Docker Compose installed.
+
+2. Run using Docker Compose:
+```bash
+docker-compose up -d
+```
+
+3. Access the website: `http://localhost:8080`
+
+Docker deployment features:
+- Uses Nginx as the web server
+- Maps the `json` directory to the host for easy bookmark updates
+- Supports automatic container restart
+- Includes Gzip compression for improved performance
+
 ## Technologies Used
 
 - HTML/CSS/JavaScript
